@@ -1,50 +1,83 @@
 import React, { Component } from 'react';
+import Home from './HomeComponent';
 import Menu from './MenuComponent';
 import Dishdetail from './DishdetailComponent';
-import { DISHES } from '../shared/dishes';
 import { View, Platform } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { Icon } from 'react-native-elements';
 
-const MenuNavigator = createStackNavigator();
+const MenuNavigator = createStackNavigator(
+  {
+    Menu: { screen: Menu },
+    Dishdetail: { screen: Dishdetail },
+  },
+  {
+    initialRouteName: 'Menu',
+    defaultNavigationOptions: ({navigation}) => ({
+      headerStyle: {
+        backgroundColor: '#512DA8'
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        color: '#fff'
+      }
+    })
+  }
+);
 
-function MenuNavigatorScreen() {
-    return(
-        <MenuNavigator.Navigator
-            initialRouteName='Menu'
-            screenOptions={{
-                headerStyle: {
-                    backgroundColor: "#512DA8"
-                },
-                headerTintColor: "#fff",
-                headerTitleStyle: {
-                    color: "#fff"
-                }
-            }}
-        >
-            <MenuNavigator.Screen
-                name="Menu"
-                component={Menu}
-            />
-            <MenuNavigator.Screen
-                name="Dishdetail"
-                component={Dishdetail}
-                options={{ headerTitle: "Dish Detail"}}
-            />
-        </MenuNavigator.Navigator>
-    );
-}
+const HomeNavigator = createStackNavigator(
+  {
+    Home: {screen: Home}
+  },
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      headerStyle: {
+        backgroundColor: '#512DA8',
+      },
+      headerTitleStyle: {
+        color: '#fff'
+      },
+      headerTintColor: '#fff'
+    })
+  }
+);
+
+const MainNavigator = createDrawerNavigator(
+  {
+    Home: {
+      screen: HomeNavigator,
+      navigationOptions: {
+        title: 'Home',
+        drawerLabel: 'Home'
+      }
+    },
+    Menu: {
+      screen: MenuNavigator,
+      navigationOptions: {
+        title: 'Menu',
+        drawerLabel: 'Menu'
+      }
+    }
+  },
+  {
+    drawerBackgroundColor: '#D1C4E9',
+  }
+);
+
+const MainNavigatorContainer = createAppContainer(MainNavigator);
 
 class Main extends Component {
-
+  
   render() {
 
-    return (
-        <NavigationContainer>
-            <MenuNavigatorScreen />
-        </NavigationContainer>
-    );
-  }
+      return (
+        <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight, }}>
+          <MainNavigatorContainer />
+        </View>
+      );
+    }
 }
 
 export default Main;
