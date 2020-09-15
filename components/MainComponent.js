@@ -4,6 +4,7 @@ import About from './AboutComponent';
 import Menu from './MenuComponent';
 import Dishdetail from './DishdetailComponent';
 import Contact from './ContactComponent';
+import Reservation from './ReservationComponent';
 import { View, Platform, Text, ScrollView, Image, StyleSheet  } from 'react-native';
 import { createAppContainer, SafeAreaView } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -27,10 +28,9 @@ const mapDispatchToProps = dispatch => ({
 const MenuNavigator = createStackNavigator(
   {
     Menu: { screen: Menu, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24}
-              color= 'white'
-              onPress={ () => navigation.toggleDrawer() } />
-            }) },
+              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+            })
+    },
     Dishdetail: { screen: Dishdetail },
   },
   {
@@ -50,10 +50,9 @@ const MenuNavigator = createStackNavigator(
 const HomeNavigator = createStackNavigator(
   {
     Home: {screen: Home, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24}
-              color= 'white'
-              onPress={ () => navigation.toggleDrawer() } />
-            })}
+              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+            })
+    }
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -71,10 +70,9 @@ const HomeNavigator = createStackNavigator(
 const ContactNavigator = createStackNavigator(
   {
     'Contact Us': {screen: Contact, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24}
-              color= 'white'
-              onPress={ () => navigation.toggleDrawer() } />
-            })}
+              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+            })
+    }
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -92,10 +90,29 @@ const ContactNavigator = createStackNavigator(
 const AboutNavigator = createStackNavigator(
   {
     'About Us': {screen: About, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24}
-              color= 'white'
-              onPress={ () => navigation.toggleDrawer() } />
-            })}
+              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+            })
+    }
+  },
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      headerStyle: {
+        backgroundColor: '#512DA8',
+      },
+      headerTitleStyle: {
+        color: '#fff'
+      },
+      headerTintColor: '#fff'
+    })
+  }
+);
+
+const ReservationNavigator = createStackNavigator(
+  {
+    Reservation: {screen: Reservation, navigationOptions: ({ navigation }) => ({
+              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+            })
+    }
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -158,6 +175,14 @@ const MainNavigator = createDrawerNavigator(
         title: 'Contact Us',
         drawerLabel: 'Contact Us',
         drawerIcon: ({ tintColor, focused }) => ( <Icon name='address-card' type='font-awesome' size={22} color={tintColor} /> ),
+      }
+    },
+    Reservation: {
+      screen: ReservationNavigator,
+      navigationOptions: {
+        title: 'Reservation',
+        drawerLabel: 'Reservation',
+        drawerIcon: ({ tintColor, focused }) => ( <Icon name='cutlery' type='font-awesome' size={22} color={tintColor} /> ),
       }
     }
   },
