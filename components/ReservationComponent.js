@@ -66,8 +66,8 @@ class Reservation extends Component {
                 <View style={styles.formRow}>
                   <Text style={styles.formLabel}>Date and Time</Text>
                     <TouchableOpacity style={styles.formItem} style={{ padding: 7, borderColor: '#512DA8', borderWidth: 2, flexDirection: "row" }} onPress={() => this.setState({ show: true, mode: 'date' })} >
-                    <Icon type='font-awesome' name='calendar' color='#512DA8' />
-                    <Text > {' ' + Moment(this.state.date).format('DD-MMM-YYYY h:mm A') } </Text>
+                      <Icon type='font-awesome' name='calendar' color='#512DA8' />
+                      <Text > {' ' + Moment(this.state.date).format('DD-MMM-YYYY h:mm A') } </Text>
                     </TouchableOpacity>
                     {/* Date Time Picker */}
                     {this.state.show && (
