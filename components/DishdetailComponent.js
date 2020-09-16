@@ -32,13 +32,22 @@ function RenderDish(props) {
             return false;
     };
 
+    const recognizeComment = ({ moveX, moveY, dx, dy }) => {
+        if ( dx > 200 )
+            return true;
+        else
+            return false;
+    };
+
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (e, gestureState) => {
             return true;
         },
         onPanResponderGrant: () => {viewRef.current.rubberBand(1000);},
         onPanResponderEnd: (e, gestureState) => {
-            console.log("pan responder end", gestureState);
+            if (recognizeComment(gestureState))
+              return props.toggle();
+
             if (recognizeDrag(gestureState))
                 Alert.alert(
                     'Add Favorite',
