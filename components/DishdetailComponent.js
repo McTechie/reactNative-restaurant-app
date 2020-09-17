@@ -164,21 +164,46 @@ class Dishdetail extends Component {
             <Modal animationType = {"slide"} transparent = {false} visible = {this.state.showModal} onDismiss = {() => this.toggleModal() } onRequestClose = {() => this.toggleModal() }>
 
               <View style = {styles.modal}>
-                <Rating showRating onFinishRating={(rate) => {this.setState({rating: rate})}} fractions="{1}" startingValue="5" defaultRating="5" name={'rating'} minValue="1" />
+
+                <Rating
+                    showRating
+                    name={'rating'}
+                    fractions="{1}"
+                    minValue="1"
+                    startingValue="5"
+                    defaultRating="5"
+                    onFinishRating={(rate) => {this.setState({rating: rate})}} />
 
                 <View style={styles.formRow}></View>
 
-                <Input title="Author" onChangeText={(input) => {this.setState({author: input})}} placeholder="Author" leftIcon={<Icon raised size={15} reverse name={'user'} type='font-awesome'/>} />
+                <Input
+                    title="Author"
+                    placeholder=" Author"
+                    leftIcon={{ type: 'font-awesome', name: 'user-o' }}
+                    onChangeText={(input) => {this.setState({author: input})}} />
 
-                <Input title="Comment" onChangeText={(input) => {this.setState({comment: input})}} placeholder="Comment" leftIcon={<Icon raised size={15} reverse name={'comment'} type='font-awesome'/>} />
+                <Input
+                    title="Comment"
+                    placeholder=" Comment"
+                    leftIcon={{ type: 'font-awesome', name: 'comment-o' }}
+                    onChangeText={(input) => {this.setState({comment: input})}} />
 
                 <View style={styles.formRow}>
-                  <Button onPress={() => this.handleComment(dishId)} title="Submit" color="#512DA8" accessibilityLabel="Learn more about this purple button" />
+                  <Button
+                    title="Submit"
+                    color="#512DA8"
+                    accessibilityLabel="Learn more about this purple button"
+                    onPress={() => this.handleComment(dishId)} />
                 </View>
 
                 <View style={styles.formRow}>
-                  <Button onPress={() => this.resetForm()} title="Cancel" color="gray" accessibilityLabel="Learn more about this grey button" />
+                  <Button
+                    title="Cancel"
+                    color="gray"
+                    accessibilityLabel="Learn more about this grey button"
+                    onPress={() => this.resetForm()} />
                 </View>
+
               </View>
 
             </Modal>
