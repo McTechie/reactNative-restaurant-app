@@ -32,7 +32,14 @@ class Reservation extends Component {
             if (permission.status !== 'granted') {
                 Alert.alert('Permission not granted to show notifications');
             }
+        } else {
+
+            if (Platform.OS === 'android') {
+              Notifications.createChannelAndroidAsync('notify', { name: 'notify', sound: true, vibrate: true, });
+            }
+
         }
+
         return permission;
     }
 
@@ -45,8 +52,7 @@ class Reservation extends Component {
                 sound: true
             },
             android: {
-                sound: true,
-                vibrate: true,
+                "channelId": "notify",
                 color: '#512DA8'
             }
         });
