@@ -27,11 +27,35 @@ const mapDispatchToProps = dispatch => ({
   fetchLeaders: () => dispatch(fetchLeaders())
 })
 
+const HomeNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: Home,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+      })
+    }
+  },
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      headerStyle: {
+        backgroundColor: '#512DA8',
+      },
+      headerTitleStyle: {
+        color: '#fff'
+      },
+      headerTintColor: '#fff'
+    })
+  }
+);
+
 const MenuNavigator = createStackNavigator(
   {
-    Menu: { screen: Menu, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
-            })
+    Menu: {
+      screen: Menu,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+      })
     },
     Dishdetail: { screen: Dishdetail },
   },
@@ -49,31 +73,13 @@ const MenuNavigator = createStackNavigator(
   }
 );
 
-const HomeNavigator = createStackNavigator(
-  {
-    Home: {screen: Home, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
-            })
-    }
-  },
-  {
-    defaultNavigationOptions: ({navigation}) => ({
-      headerStyle: {
-        backgroundColor: '#512DA8',
-      },
-      headerTitleStyle: {
-        color: '#fff'
-      },
-      headerTintColor: '#fff'
-    })
-  }
-);
-
 const ContactNavigator = createStackNavigator(
   {
-    'Contact Us': {screen: Contact, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
-            })
+    'Contact Us': {
+      screen: Contact,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+      })
     }
   },
   {
@@ -91,9 +97,11 @@ const ContactNavigator = createStackNavigator(
 
 const AboutNavigator = createStackNavigator(
   {
-    'About Us': {screen: About, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
-            })
+    'About Us': {
+      screen: About,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+      })
     }
   },
   {
@@ -111,9 +119,11 @@ const AboutNavigator = createStackNavigator(
 
 const ReservationNavigator = createStackNavigator(
   {
-    Reservation: {screen: Reservation, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
-            })
+    Reservation: {
+      screen: Reservation,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+      })
     }
   },
   {
@@ -131,9 +141,11 @@ const ReservationNavigator = createStackNavigator(
 
 const FavoritesNavigator = createStackNavigator(
   {
-    Favorites: {screen: Favorites, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
-            })
+    Favorites: {
+      screen: Favorites,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+      })
     }
   },
   {
@@ -151,9 +163,11 @@ const FavoritesNavigator = createStackNavigator(
 
 const LoginNavigator = createStackNavigator(
   {
-    Favorites: {screen: Login, navigationOptions: ({ navigation }) => ({
-              headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
-            })
+    Login: {
+      screen: Login,
+      navigationOptions: ({ navigation }) => ({
+          headerLeft: <Icon name="menu" size={24} color= 'white' onPress={ () => navigation.toggleDrawer() } />
+      })
     }
   },
   {
