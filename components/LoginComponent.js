@@ -125,7 +125,6 @@ class RegisterTab extends Component {
                 this.setState({imageUrl: capturedImage.uri });
             }
         }
-
     }
 
     static navigationOptions = {
