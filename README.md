@@ -28,7 +28,7 @@
 
 **Step 4-** Track Progress via the link provided in the terminal (provided when build starts)
 
-For any further clarifications, visit the [Expo CLI](https://docs.expo.io/workflow/expo-cli/) guide.
+***Note: For any further clarifications, visit the [Expo CLI](https://docs.expo.io/workflow/expo-cli/) guide.***
 
 ## Ejecting from the CRNA environment for Native Development
 
