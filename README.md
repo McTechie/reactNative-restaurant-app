@@ -7,10 +7,9 @@
   - <code>Hybrid Mobile App Development Approach</code>
   - <code>React Navigation</code>
   - <code>Redux</code>
-  - <code>React Native Animations</code>
-  - <code>React Native Gestures</code>
+  - <code>React Native Animations &amp; Gestures</code>
   - <code>Secure Store API</code>
   - <code>ImagePicker API</code>
   - <code>Native App Deployment</code>
   
-  [Click here](https://github.com/users/mcs-codes/projects/3) for a detailed overview of the concepts covered!
+  For a detailed overview of the concepts covered [Click here!](https://github.com/users/mcs-codes/projects/3)
