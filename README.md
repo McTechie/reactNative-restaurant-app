@@ -13,7 +13,7 @@
   - <code>ImagePicker API</code>
   - <code>Native App Deployment</code>
   
-  For a detailed overview of the concepts covered [Click here!](https://github.com/users/mcs-codes/projects/3)
+  For a detailed overview of the concepts covered [**Click here!**](https://github.com/users/mcs-codes/projects/3)
 
 ## Deploying the CRNA app on the Expo Server
 ***Note: You need to have an [Expo account](https://expo.io/) and <code>expo-cli</code> installed in order to build the app and deploy it to the Expo Server***
